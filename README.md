@@ -31,5 +31,6 @@ banner.vue 轮播插件
 news.vue 新鲜事列表
 newsDetail.vue 新鲜事详情
 page.vue分页插件
+moments.vue话题页面
 ```
 有关如何工作的详细说明，请查看[guide] （http://vuejs-templates.github.io/webpack/）和[vue-loader文档] （http://vuejs.github.io/ vue-loader）
