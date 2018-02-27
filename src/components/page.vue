@@ -11,14 +11,7 @@
 <script>
 export default {
   name: 'page',
-  data () {
-    return {
-       	current:1,
-        showItem:5,
-        allpage:13
-    }
-  } ,
-  props: ['pageCurrent','pageShow','pageTotal'],
+  props: ['current','showItem','allpage'],
   computed:{
   pages:function(){
         var pag = [];
