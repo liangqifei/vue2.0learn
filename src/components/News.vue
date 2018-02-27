@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div>{{msg}}</div>
+		<div class='news-title'>{{msg}}</div>
 		<ul v-for="(items, index) in schoolNewList" class='newlist' >
 			<li class='newitem' @click="goNewsDetail(items.id)">
 				<div class='newitem-left'>
@@ -65,6 +65,11 @@ export default {
 		padding:0;
 		margin:0;
 		list-style: none;
+	}
+	.news-title{
+		margin-top:50px;
+		font-size:20px;
+		font-weight: 700;
 	}
 	.newlist{
 		width:100%;
