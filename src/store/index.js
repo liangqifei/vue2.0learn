@@ -40,7 +40,12 @@ const actions={
 	getNewlists (context) {
 		console.log(context);
 		context.commit('getNewlists')
-    }
+   },
+   getNewsDetail(context, param) {
+   		//debugger;
+		//console.log(context);
+		context.commit('getNewsDetail',param)
+   }
 }
 const mutations={
 	getNewlists(state) {
@@ -51,7 +56,18 @@ const mutations={
       	console.log(res);
       	 state.schoolNewList=res.data;
       })
-    }
+   },
+   getNewsDetail(state,parmes) {
+     	 debugger;	
+     	 console.log(parmes);
+	  axios({
+        method: 'get',
+        url: baseURL+'/social/fangles/getById?id='+parmes.id
+      }).then(function(res){
+      	debugger;
+      	state.newDetail=res.data;
+      })
+   }
 }
 export default new Vuex.Store({
 	state,
