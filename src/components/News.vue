@@ -2,7 +2,7 @@
 	<div>
 		<div class='news-title'>{{msg}}</div>
 		<ul v-for="(items, index) in schoolNewList" class='newlist' >
-			<li class='newitem' @click="goNewsDetail(items.id)">
+			<li  class='newitem' @click="goNewsDetail(items.id)">
 				<div class='newitem-left'>
 					<img  :src="items.smallPortrait" class='new-image'/>
 				</div>
@@ -20,7 +20,7 @@
 				</div>
 			</li>
 		</ul>
-		<page :page-current="1" :page-total="13" :page-show="5"></page>
+		<apppage :current="current" :allpage="total" :show-item="show"></apppage>
 	</div>
 </template>
 
@@ -30,7 +30,10 @@ export default {
   name: 'News',
   data () {
     return {
-      msg: this.$store.state.schoolName+' news'
+      msg: this.$store.state.schoolName+' news',
+      current:1,
+      total:13,
+      show:6
     }
   },
   methods:{
@@ -38,16 +41,17 @@ export default {
 	   this.$store.dispatch('getNewlists')
 	},
 	goNewsDetail:function(id){
-		console.log(this.$router)
+		console.log(id)
 		this.$router.push({
-			path: 'newsDetail', 
-			query: {id: id}
+			path: 'newsdetail',
+			query:{
+				id:id
+			}
 		})
 	}
   },
   components:{
-	    page,
-//	    props: ['childCurrent','childTotal','childShow']
+	    apppage:page,
 	},
   computed: {
    	schoolNewList:function(){
